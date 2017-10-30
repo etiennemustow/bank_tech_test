@@ -11,8 +11,9 @@ I used Ruby for the code and RSpec was used for testing
 
 * Clone this repo
 * Open IRB
-``` require './account.rb'
-    account = Account.new
+```ruby
+require './account.rb'
+account = Account.new
 ```
 * You can deposit money
 ```ruby
@@ -20,7 +21,8 @@ account.deposit(100)
 ```
 
 * You can then view the statement
-```ruby > account.statement
+```ruby
+> account.statement
 
 date  ||  credit  ||  debit  ||  balance
 30/10/2017 ||    ||    ||  100
