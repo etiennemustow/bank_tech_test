@@ -15,7 +15,8 @@ I used Ruby for the code and RSpec was used for testing
     account = Account.new
 ```
 * You can deposit money
-```ruby account.deposit(100)
+```ruby
+account.deposit(100)
 ```
 
 * You can then view the statement
