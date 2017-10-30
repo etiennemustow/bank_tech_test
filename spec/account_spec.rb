@@ -18,7 +18,7 @@ describe "When there's nothing in the account" do
     printed = capture_stdout do
       account.statement
     end
-    expect(printed).to eq "date  ||  credit  ||  debit  ||  balance\n#{DateTime.now.strftime "%d/%m/%Y"} ||    ||    ||  0\n"
+    expect(printed).to eq "date  ||  credit  ||  debit  ||  balance\n#{DateTime.now.strftime "%d/%m/%Y"} ||    ||    ||  0\n\n"
   end
 
   it "should print current balance with statement" do
@@ -26,6 +26,15 @@ describe "When there's nothing in the account" do
     printed = capture_stdout do
       account.statement
     end
-    expect(printed).to eq "date  ||  credit  ||  debit  ||  balance\n#{DateTime.now.strftime "%d/%m/%Y"} ||    ||    ||  0\n"
+    expect(printed).to eq "date  ||  credit  ||  debit  ||  balance\n#{DateTime.now.strftime "%d/%m/%Y"} ||    ||    ||  0\n\n"
+  end
+
+  it "should display correct balance when deposited" do
+    account = Account.new
+    account.deposit(10)
+    printed = capture_stdout do
+      account.statement
+    end
+    expect(printed).to eq "date  ||  credit  ||  debit  ||  balance\n#{DateTime.now.strftime "%d/%m/%Y"} ||    ||    ||  10\n#{DateTime.now.strftime "%d/%m/%Y"} ||  10  ||    ||  10\n"
   end
 end

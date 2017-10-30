@@ -6,22 +6,26 @@ class Account
   def initialize
     @balance = 0
     @date = DateTime.now.strftime "%d/%m/%Y"
-    @transaction = ["date  ||  credit  ||  debit  ||  balance", "#{@date} ||  #{@credit}  ||  #{@debit}  ||  #{@balance}"]
+    @transaction = []
   end
 
   def statement
+    puts "date  ||  credit  ||  debit  ||  balance"
+    puts "#{@date} ||  #{@credit}  ||  #{@debit}  ||  #{@balance}"
     puts @transaction.join("\n")
   end
 
   def deposit(amount)
     @balance += amount
-    @debit = amount
-    @transaction.push("#{@date} ||  #{@credit}  ||  #{@debit}  ||  #{@balance}")
+    @credit = amount
+    @transaction.unshift("#{@date} ||  #{@credit}  ||  #{@debit}  ||  #{@balance}")
+    @credit = nil
   end
 
   def withdraw(amount)
     @balance -= amount
-    @credit = amount
-    @transaction.push("#{@date} ||  #{@credit}  ||  #{@debit}  ||  #{@balance}")
+    @debit = amount
+    @transaction.unshift("#{@date} ||  #{@credit}  ||  #{@debit}  ||  #{@balance}")
+    @debit = nil
   end
 end
