@@ -15,4 +15,4 @@ I used Ruby for the code and RSpec was used for testing
     account = Account.new
 ```
 * You can deposit money
-    account.deposit(100)
+-- account.deposit(100)
