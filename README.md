@@ -14,3 +14,6 @@ I used Ruby for the code and RSpec was used for testing
 ``` require './account.rb'
     account = Account.new
 ```
+* You can deposit money
+``` account.deposit(100)
+```
