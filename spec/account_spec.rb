@@ -1,4 +1,5 @@
 require './account.rb'
+require_relative 'account_spec_helpers'
 
 describe "When there's nothing in the account" do
   it "should initiate with a balance of 0" do
@@ -14,11 +15,17 @@ describe "When there's nothing in the account" do
 
   it "should print current date with statement" do
     account = Account.new
-    expect(account.statement).to eq "date  ||  credit  ||  debit  ||  balance\n#{DateTime.now.strftime "%d/%m/%Y"} ||    ||    ||  0"
+    printed = capture_stdout do
+      account.statement
+    end
+    expect(printed).to eq "date  ||  credit  ||  debit  ||  balance\n#{DateTime.now.strftime "%d/%m/%Y"} ||    ||    ||  0\n"
   end
 
   it "should print current balance with statement" do
     account = Account.new
-    expect(account.statement).to eq "date  ||  credit  ||  debit  ||  balance\n#{DateTime.now.strftime "%d/%m/%Y"} ||    ||    ||  0"
+    printed = capture_stdout do
+      account.statement
+    end
+    expect(printed).to eq "date  ||  credit  ||  debit  ||  balance\n#{DateTime.now.strftime "%d/%m/%Y"} ||    ||    ||  0\n"
   end
 end
