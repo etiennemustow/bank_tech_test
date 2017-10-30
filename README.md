@@ -15,4 +15,13 @@ I used Ruby for the code and RSpec was used for testing
     account = Account.new
 ```
 * You can deposit money
--- account.deposit(100)
+```ruby account.deposit(100)
+```
+
+* You can then view the statement
+```ruby > account.statement
+
+date  ||  credit  ||  debit  ||  balance
+30/10/2017 ||    ||    ||  100
+30/10/2017 ||  100  ||    ||  100
+```
